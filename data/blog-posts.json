@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "Understanding Binary Trees: A Complete Guide",
+    "slug": "understanding-binary-trees-complete-guide",
+    "category": "dsa",
+    "excerpt": "Dive deep into binary trees, their properties, and common operations. Learn how to implement and traverse binary trees with practical examples.",
+    "content": "Binary trees are fundamental data structures in computer science...",
+    "author": "Your Name",
+    "publishedDate": "2024-01-15",
+    "readTime": "8 min read",
+    "tags": [
+      "binary-trees",
+      "data-structures",
+      "algorithms",
+      "programming"
+    ],
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "System Design: Building Scalable Web Applications",
+    "slug": "system-design-building-scalable-web-applications",
+    "category": "system-design",
+    "excerpt": "Learn the principles of system design and how to build applications that can handle millions of users. Covers load balancing, caching, and database scaling.",
+    "content": "System design is crucial for building applications that scale...",
+    "author": "Your Name",
+    "publishedDate": "2024-01-10",
+    "readTime": "12 min read",
+    "tags": [
+      "system-design",
+      "scalability",
+      "architecture",
+      "web-development"
+    ],
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "Big O Notation: Time and Space Complexity",
+    "slug": "big-o-notation-time-space-complexity",
+    "category": "cs-fundamentals",
+    "excerpt": "Master Big O notation to analyze algorithm efficiency. Understand time and space complexity with visual examples and practical applications.",
+    "content": "Big O notation is essential for analyzing algorithm performance...",
+    "author": "Your Name",
+    "publishedDate": "2024-01-05",
+    "readTime": "6 min read",
+    "tags": [
+      "big-o",
+      "complexity",
+      "algorithms",
+      "performance"
+    ],
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "React Hooks: useState and useEffect Deep Dive",
+    "slug": "react-hooks-usestate-useeffect-deep-dive",
+    "category": "web-development",
+    "excerpt": "Explore React hooks in detail. Learn how to use useState and useEffect effectively with practical examples and best practices.",
+    "content": "React hooks revolutionized how we write React components...",
+    "author": "Your Name",
+    "publishedDate": "2024-01-01",
+    "readTime": "10 min read",
+    "tags": [
+      "react",
+      "hooks",
+      "javascript",
+      "frontend"
+    ],
+    "featured": true
+  },
+  {
+    "id": 5,
+    "title": "Graph Algorithms: DFS and BFS Implementation",
+    "slug": "graph-algorithms-dfs-bfs-implementation",
+    "category": "dsa",
+    "excerpt": "Implement depth-first search and breadth-first search algorithms. Learn when to use each approach with real-world examples.",
+    "content": "Graph algorithms are essential for solving many programming problems...",
+    "author": "Your Name",
+    "publishedDate": "2023-12-28",
+    "readTime": "9 min read",
+    "tags": [
+      "graphs",
+      "dfs",
+      "bfs",
+      "algorithms"
+    ],
+    "featured": false
+  },
+  {
+    "id": 6,
+    "title": "Database Indexing: Performance Optimization",
+    "slug": "database-indexing-performance-optimization",
+    "category": "cs-fundamentals",
+    "excerpt": "Understand database indexing strategies to optimize query performance. Learn about B-trees, hash indexes, and when to use each type.",
+    "content": "Database indexing is crucial for application performance...",
+    "author": "Your Name",
+    "publishedDate": "2023-12-25",
+    "readTime": "7 min read",
+    "tags": [
+      "database",
+      "indexing",
+      "performance",
+      "sql"
+    ],
+    "featured": false
+  }
+]

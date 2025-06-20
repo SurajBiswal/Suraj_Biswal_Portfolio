@@ -1,0 +1,61 @@
+[
+  {
+    "id": 1,
+    "company": "Tech Solutions Inc.",
+    "position": "Senior Software Engineer",
+    "duration": "2022 - Present",
+    "location": "San Francisco, CA",
+    "description": "Led a team of 5 developers in building scalable web applications. Implemented microservices architecture and improved system performance by 40%.",
+    "technologies": [
+      "React",
+      "Node.js",
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "achievements": [
+      "Reduced API response time by 50%",
+      "Mentored 3 junior developers",
+      "Implemented CI/CD pipeline"
+    ]
+  },
+  {
+    "id": 2,
+    "company": "StartupXYZ",
+    "position": "Full Stack Developer",
+    "duration": "2020 - 2022",
+    "location": "New York, NY",
+    "description": "Developed and maintained multiple web applications using modern JavaScript frameworks. Collaborated with cross-functional teams to deliver high-quality products.",
+    "technologies": [
+      "Vue.js",
+      "Python",
+      "PostgreSQL",
+      "Redis"
+    ],
+    "achievements": [
+      "Built 5 production applications",
+      "Increased user engagement by 30%",
+      "Optimized database queries"
+    ]
+  },
+  {
+    "id": 3,
+    "company": "Digital Agency",
+    "position": "Frontend Developer",
+    "duration": "2019 - 2020",
+    "location": "Remote",
+    "description": "Created responsive and interactive user interfaces for various client projects. Worked closely with designers to implement pixel-perfect designs.",
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Sass",
+      "Webpack"
+    ],
+    "achievements": [
+      "Delivered 15+ client projects",
+      "Improved website load times by 25%",
+      "Implemented responsive design patterns"
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "institution": "University of Technology",
+    "degree": "Bachelor of Science in Computer Science",
+    "duration": "2015 - 2019",
+    "location": "California, USA",
+    "gpa": "3.8/4.0",
+    "description": "Specialized in Software Engineering and Database Systems. Completed capstone project on machine learning applications.",
+    "courses": [
+      "Data Structures and Algorithms",
+      "Database Management Systems",
+      "Software Engineering",
+      "Machine Learning",
+      "Computer Networks"
+    ],
+    "achievements": [
+      "Dean's List for 4 semesters",
+      "President of Computer Science Club",
+      "Winner of Annual Hackathon 2018"
+    ]
+  },
+  {
+    "id": 2,
+    "institution": "Google",
+    "degree": "Google Cloud Professional Developer",
+    "duration": "2021",
+    "location": "Online",
+    "description": "Comprehensive certification covering cloud-native application development on Google Cloud Platform.",
+    "type": "certification"
+  },
+  {
+    "id": 3,
+    "institution": "AWS",
+    "degree": "AWS Certified Solutions Architect",
+    "duration": "2020",
+    "location": "Online",
+    "description": "Professional certification demonstrating expertise in designing distributed systems on AWS.",
+    "type": "certification"
+  }
+]
