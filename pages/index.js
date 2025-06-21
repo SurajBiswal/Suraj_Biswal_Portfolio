@@ -22,7 +22,9 @@ export default function Home() {
   }, []);
 
   return (
-    <Layout title="Home - Portfolio" description="Full Stack Software Engineer Portfolio">
+    <Layout
+      title="Suraj Biswal | Full Stack Developer | DSA & System Design Blog"
+      description="Suraj Biswal's portfolio - Full Stack Software Engineer with a focus on scalable web apps, DSA, system design, and learning blogs.">
       <Hero />
       <Skills />
       <DSASection/>
