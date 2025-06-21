@@ -1,9 +1,13 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FiArrowRight, FiDownload, FiGithub, FiLinkedin } from "react-icons/fi";
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-gray-900 dark:to-gray-800 section-padding">
+    <section
+      className="relative bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-gray-900 dark:to-gray-800 section-padding"
+      aria-label="Hero Section"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
@@ -37,6 +41,7 @@ export default function Hero() {
               <Link
                 href="/projects"
                 className="btn-primary inline-flex items-center justify-center"
+                aria-label="View My Work"
               >
                 View My Work
                 <FiArrowRight className="ml-2" />
@@ -47,6 +52,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 download
                 className="btn-secondary inline-flex items-center justify-center"
+                aria-label="Download Resume PDF"
               >
                 <FiDownload className="mr-2" />
                 Download Resume
@@ -60,7 +66,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors"
-                aria-label="GitHub"
+                aria-label="GitHub Profile"
               >
                 <FiGithub size={24} />
               </a>
@@ -69,7 +75,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors"
-                aria-label="LinkedIn"
+                aria-label="LinkedIn Profile"
               >
                 <FiLinkedin size={24} />
               </a>
@@ -80,19 +86,22 @@ export default function Hero() {
           <div className="flex justify-center lg:justify-end animate-fade-in">
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-primary-400 to-secondary-400 p-1 overflow-hidden">
-                <img
+                <Image
                   src="/images/surajprofile.jpg"
-                  alt="Suraj Profile"
-                  className="w-full h-full object-cover rounded-full"
+                  alt="Suraj Biswal smiling"
+                  className="rounded-full"
+                  width={320}
+                  height={320}
+                  priority
                 />
               </div>
 
-              {/* Floating elements */}
+              {/* Floating Elements */}
               <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center">
-                <span className="text-2xl">⚡</span>
+                <span className="text-2xl" aria-hidden="true">⚡</span>
               </div>
               <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-secondary-100 dark:bg-secondary-900 rounded-full flex items-center justify-center">
-                <span className="text-xl">🚀</span>
+                <span className="text-xl" aria-hidden="true">🚀</span>
               </div>
             </div>
           </div>

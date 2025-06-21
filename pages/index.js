@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Layout from '../components/layout/Layout';
 import Hero from '../components/Hero';
 import Skills from '../components/Skills';
@@ -11,7 +12,6 @@ export default function Home() {
   const [blogPosts, setBlogPosts] = useState([]);
 
   useEffect(() => {
-    // Load projects and blog posts
     import('../data/projects.json').then(data => {
       setProjects(data.default.filter(project => project.featured).slice(0, 3));
     });
@@ -22,132 +22,152 @@ export default function Home() {
   }, []);
 
   return (
-    <Layout
-      title="Suraj Biswal | Full Stack Developer | DSA & System Design Blog"
-      description="Suraj Biswal's portfolio - Full Stack Software Engineer with a focus on scalable web apps, DSA, system design, and learning blogs.">
-      <Hero />
-      <Skills />
-      <DSASection/>
+    <>
+      <Head>
+        <title>Suraj Biswal | Full Stack Developer Portfolio</title>
+        <meta name="description" content="Portfolio of Suraj Biswal, full stack developer with expertise in scalable web apps, DSA, and system design." />
+        <meta name="keywords" content="Suraj Biswal, full stack developer, react developer, next.js, software engineer, DSA blog, system design" />
+        <meta name="author" content="Suraj Biswal" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
 
-      {/* Featured Projects Section */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Featured Projects
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Here are some of my recent projects that showcase my skills and experience
-            </p>
-          </div>
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://suraj-biswal-portfolio.vercel.app/" />
+        <meta property="og:title" content="Suraj Biswal | Full Stack Developer Portfolio" />
+        <meta property="og:description" content="Explore Suraj Biswal's personal portfolio including DSA blogs, system design guides, and live project demos." />
+        <meta property="og:image" content="/og-image.jpg" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {projects.map((project, index) => (
-              <div key={project.id} className="card p-6 animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-gray-700 dark:to-gray-600 rounded-lg mb-4 flex items-center justify-center">
-                  <span className="text-4xl">🚀</span>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {project.description}
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://suraj-biswal-portfolio.vercel.app/" />
+        <meta name="twitter:title" content="Suraj Biswal | Full Stack Developer Portfolio" />
+        <meta name="twitter:description" content="Explore Suraj Biswal's personal portfolio including DSA blogs, system design guides, and live project demos." />
+        <meta name="twitter:image" content="/og-image.jpg" />
+
+        {/* Canonical Link */}
+        <link rel="canonical" href="https://suraj-biswal-portfolio.vercel.app/" />
+      </Head>
+
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Suraj Biswal",
+            url: "https://suraj-biswal-portfolio.vercel.app",
+            jobTitle: "Full Stack Developer",
+            sameAs: [
+              "https://github.com/SurajBiswal",
+              "https://linkedin.com/in/suraj-biswal-b53b29192/"
+            ]
+          })
+        }}
+      />
+
+      <Layout
+        title="Suraj Biswal | Full Stack Developer || DSA & System Design Blog"
+        description="Suraj Biswal's portfolio - Full Stack Software Engineer with a focus on scalable web apps, DSA, system design, and learning blogs.">
+        <main>
+          <Hero />
+          <Skills />
+          <DSASection />
+
+          {/* Featured Projects */}
+          <section className="section-padding">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-16">
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Featured Projects
+                </h1>
+                <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                  Explore recent projects showcasing my frontend and backend skills.
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.slice(0, 3).map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex space-x-4">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-600 dark:text-primary-400 hover:underline text-sm"
-                  >
-                    View Code
-                  </a>
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-600 dark:text-primary-400 hover:underline text-sm"
-                  >
-                    Live Demo
-                  </a>
-                </div>
               </div>
-            ))}
-          </div>
 
-          <div className="text-center">
-            <Link
-              href="/projects"
-              className="btn-primary inline-flex items-center"
-            >
-              View All Projects
-              <FiArrowRight className="ml-2" />
-            </Link>
-          </div>
-        </div>
-      </section>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                {projects.map((project, index) => (
+                  <article key={project.id} className="card p-6 animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className="aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-gray-700 dark:to-gray-600 rounded-lg mb-4 flex items-center justify-center">
+                      <span className="text-4xl" role="img" aria-label="project icon">🚀</span>
+                    </div>
+                    <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{project.title}</h2>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.slice(0, 3).map((tech) => (
+                        <span key={tech} className="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex space-x-4">
+                      {project.githubUrl && (
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:underline text-sm">
+                          View Code
+                        </a>
+                      )}
+                      {project.liveUrl && (
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:underline text-sm">
+                          Live Demo
+                        </a>
+                      )}
+                    </div>
+                  </article>
+                ))}
+              </div>
 
-      {/* Recent Blog Posts Section */}
-      <section className="section-padding bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Recent Blog Posts
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              I write about software development, algorithms, and my learning journey
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {blogPosts.map((post, index) => (
-              <div key={post.id} className="card p-6 animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className={`inline-block px-3 py-1 rounded-full text-sm mb-4 category-${post.category}`}>
-                  {post.category.replace('-', ' ').toUpperCase()}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  {post.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {post.excerpt}
-                </p>
-                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-                  <FiCalendar className="mr-2" />
-                  {new Date(post.publishedDate).toLocaleDateString()}
-                  <FiClock className="ml-4 mr-2" />
-                  {post.readTime}
-                </div>
-                <Link
-                  href={`/blog/${post.category}/${post.slug}`}
-                  className="text-primary-600 dark:text-primary-400 hover:underline font-medium"
-                >
-                  Read More →
+              <div className="text-center">
+                <Link href="/projects" className="btn-primary inline-flex items-center">
+                  View All Projects <FiArrowRight className="ml-2" />
                 </Link>
               </div>
-            ))}
-          </div>
+            </div>
+          </section>
 
-          <div className="text-center">
-            <Link
-              href="/blog"
-              className="btn-primary inline-flex items-center"
-            >
-              View All Posts
-              <FiArrowRight className="ml-2" />
-            </Link>
-          </div>
-        </div>
-      </section>
-    </Layout>
+          {/* Recent Blogs */}
+          <section className="section-padding bg-gray-50 dark:bg-gray-800">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                  Recent Blog Posts
+                </h2>
+                <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                  Insights into algorithms, system design, and web development.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                {blogPosts.map((post, index) => (
+                  <article key={post.id} className="card p-6 animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className={`inline-block px-3 py-1 rounded-full text-sm mb-4 category-${post.category}`}>
+                      {post.category.replace('-', ' ').toUpperCase()}
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{post.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">{post.excerpt}</p>
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                      <FiCalendar className="mr-2" />
+                      {new Date(post.publishedDate).toLocaleDateString()}
+                      <FiClock className="ml-4 mr-2" />
+                      {post.readTime}
+                    </div>
+                    <Link href={`/blog/${post.category}/${post.slug}`} className="text-primary-600 dark:text-primary-400 hover:underline font-medium">
+                      Read More →
+                    </Link>
+                  </article>
+                ))}
+              </div>
+
+              <div className="text-center">
+                <Link href="/blog" className="btn-primary inline-flex items-center">
+                  View All Posts <FiArrowRight className="ml-2" />
+                </Link>
+              </div>
+            </div>
+          </section>
+        </main>
+      </Layout>
+    </>
   );
 }

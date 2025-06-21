@@ -17,7 +17,7 @@ export default function Projects() {
       id: 1,
       title: 'GOFood',
       description:
-        'An online food delivery app using React, Node.js, MongoDB, Express.js, and Bootstrap. Features login, cart management, and future plans for more capabilities.',
+        'An online food delivery app using React, Node.js, MongoDB, and Express.js. Includes login, cart, and responsive UI.',
       technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Bootstrap'],
       githubUrl: 'https://github.com/SurajBiswal/gofood',
       liveUrl: '',
@@ -25,9 +25,9 @@ export default function Projects() {
     },
     {
       id: 2,
-      title: 'EmailGenie',
+      title: 'EmailGenie - AI Chrome Extension',
       description:
-        'Chrome extension using Gemini AI to automate Gmail replies, boosting productivity and reducing effort.',
+        'Chrome extension using Gemini AI to auto-generate Gmail replies, improving productivity for professionals.',
       technologies: ['ReactJS', 'Material UI', 'Java', 'Gemini API'],
       githubUrl: 'https://github.com/SurajBiswal/EmailGenie',
       liveUrl: '',
@@ -37,7 +37,7 @@ export default function Projects() {
       id: 3,
       title: 'RouteMate',
       description:
-        'Backend for ride-sharing with booking system, role-based authentication, and live location tracking using Spring Boot and PostGIS.',
+        'Spring Boot-based backend for ride-sharing with booking, live location, and role-based access using PostGIS.',
       technologies: ['Spring Boot', 'JWT', 'PostgreSQL', 'PostGIS', 'AWS'],
       githubUrl: 'https://github.com/SurajBiswal/RouteMate',
       liveUrl: '',
@@ -45,9 +45,9 @@ export default function Projects() {
     },
     {
       id: 4,
-      title: 'Portfolio',
+      title: 'Developer Portfolio',
       description:
-        'My personal developer portfolio built using Next.js, React, Node.js and Tailwind CSS.',
+        'Responsive portfolio built using Next.js, React, and Tailwind CSS to showcase full stack development work.',
       technologies: ['Next.js', 'React', 'Node.js', 'Tailwind CSS'],
       githubUrl: 'https://github.com/SurajBiswal/Suraj_Biswal_Portfolio',
       liveUrl: 'https://surajbiswalportfolio.vercel.app/',
@@ -55,9 +55,9 @@ export default function Projects() {
     },
     {
       id: 5,
-      title: 'Job-Application (Ongoing)',
+      title: 'Job Application System (Ongoing)',
       description:
-        'A job application system built with Java microservices, Spring Boot, Docker, AWS, and RabbitMQ.',
+        'Microservice-based job application backend built with Spring Boot, Docker, AWS, RabbitMQ, and Java.',
       technologies: ['Java', 'Spring Boot', 'Docker', 'AWS', 'RabbitMQ'],
       githubUrl: 'https://github.com/SurajBiswal/job-application',
       liveUrl: '',
@@ -69,7 +69,7 @@ export default function Projects() {
     selectedFilter === 'all'
       ? projects
       : selectedFilter === 'featured'
-      ? projects.filter((p) => p.title !== 'Job-Application (Ongoing)')
+      ? projects.filter((p) => p.title !== 'Job Application System (Ongoing)')
       : selectedFilter === 'web'
       ? projects.filter((p) =>
           ['React', 'Next.js', 'Spring Boot'].some((tech) =>
@@ -89,18 +89,22 @@ export default function Projects() {
   };
 
   return (
-    <Layout title="Portfolio - Suraj Biswal" description="DSA and Software Development Portfolio">
+    <Layout
+      title="Projects | Suraj Biswal | Full Stack Developer Portfolio"
+      description="Explore Suraj Biswal's full stack development projects using React, Node.js, Java, Spring Boot, APIs, and microservices. View source code and live demos."
+    >
       <section className="section-padding">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <header className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               My Projects
-            </h2>
+            </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              A collection of software I’ve built and collaborated on.
+              A curated portfolio of full stack applications, APIs, and development tools.
             </p>
-          </div>
+          </header>
 
+          {/* Filters */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <FiFilter className="text-gray-400 mt-2" size={20} />
             {filters.map((filter) => (
@@ -118,22 +122,24 @@ export default function Projects() {
             ))}
           </div>
 
+          {/* Project Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
-              <div
+              <article
                 key={project.id}
                 className="card p-6 animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} preview image`}
                   className="w-full h-48 object-cover rounded-lg mb-4"
+                  loading="lazy"
                 />
 
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   {project.title}
-                </h3>
+                </h2>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 responsive-text">
                   {project.description}
                 </p>
@@ -171,10 +177,11 @@ export default function Projects() {
                     </a>
                   )}
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 
+          {/* No Results Message */}
           {filteredProjects.length === 0 && (
             <div className="text-center py-12">
               <p className="text-gray-500 dark:text-gray-400 text-lg">

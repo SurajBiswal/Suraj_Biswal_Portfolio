@@ -1,5 +1,11 @@
 import Link from 'next/link';
-import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiExternalLink } from 'react-icons/fi';
+import {
+  FiGithub,
+  FiLinkedin,
+  FiTwitter,
+  FiMail,
+  FiExternalLink,
+} from 'react-icons/fi';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -38,9 +44,12 @@ export default function Footer() {
     <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand and Description */}
-          <div className="col-span-1">
-            <Link href="/" className="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors">
+          {/* Branding & Description */}
+          <div>
+            <Link
+              href="/"
+              className="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors"
+            >
               Portfolio
             </Link>
             <p className="mt-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
@@ -49,8 +58,8 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="col-span-1">
+          {/* Quick Navigation */}
+          <div>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">
               Quick Links
             </h3>
@@ -60,6 +69,7 @@ export default function Footer() {
                   <Link
                     href={link.href}
                     className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center"
+                    aria-label={link.name}
                   >
                     {link.name}
                     <FiExternalLink className="ml-1 w-3 h-3" />
@@ -69,27 +79,24 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social Links */}
-          <div className="col-span-1">
+          {/* Social Media Links */}
+          <div>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">
               Connect
             </h3>
             <div className="flex space-x-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                    aria-label={social.name}
-                  >
-                    <Icon size={20} />
-                  </a>
-                );
-              })}
+              {socialLinks.map(({ name, href, icon: Icon }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  aria-label={name}
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
             </div>
             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
               Feel free to reach out for collaborations or just to say hi!
@@ -97,7 +104,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Section */}
+        {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-500 dark:text-gray-400">

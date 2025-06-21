@@ -8,26 +8,30 @@ export default function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const router = useRouter();
 
+  // Apply theme preference on load
   useEffect(() => {
-    // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldUseDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
 
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
-    }
+    setIsDarkMode(shouldUseDark);
+    document.documentElement.classList.toggle('dark', shouldUseDark);
   }, []);
 
+  // Auto-close mobile menu on route change
+  useEffect(() => {
+    const handleRouteChange = () => setIsMenuOpen(false);
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [router.events]);
+
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    if (!isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
+    document.documentElement.classList.toggle('dark', newTheme);
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
   };
 
   const navigation = [
@@ -39,25 +43,27 @@ export default function Header() {
     { name: 'Blog', href: '/blog' },
   ];
 
-  const isActive = (pathname) => {
-    return router.pathname === pathname;
-  };
+  const isActive = (pathname) => router.pathname === pathname;
 
   return (
     <header className="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors">
+          <Link
+            href="/"
+            className="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors"
+          >
             Portfolio
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
                 className={`text-sm font-medium transition-colors duration-200 hover:text-primary-600 ${
                   isActive(item.href)
                     ? 'text-primary-600 border-b-2 border-primary-600 pb-1'
@@ -68,28 +74,28 @@ export default function Header() {
               </Link>
             ))}
 
-            {/* Theme Toggle */}
+            {/* Dark Mode Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+              className="p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-600 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
               aria-label="Toggle theme"
             >
               {isDarkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
             </button>
           </nav>
 
-          {/* Mobile menu button */}
+          {/* Mobile Icons */}
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={toggleDarkMode}
-              className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+              className="p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-600 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
               aria-label="Toggle theme"
             >
               {isDarkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+              className="p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-600 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -105,6 +111,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
                   className={`text-base font-medium transition-colors duration-200 hover:text-primary-600 ${
                     isActive(item.href)
                       ? 'text-primary-600'
