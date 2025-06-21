@@ -57,58 +57,57 @@ export default function Skills() {
   ];
 
   return (
-    <Layout
-      title="Technical Skills - Suraj Biswal | Full Stack Developer"
-      description="Explore my frontend, backend, database, and computer science skills. From React and Spring Boot to System Design and Data Structures, here's what I specialize in."
-    >
-      <section className="section-padding bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Technical Skills
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Here are the technologies and tools I work with regularly
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {skillsData.map((category, index) => {
-              const Icon = category.icon;
-              return (
-                <div key={category.category} className="card p-6 animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="flex items-center mb-4">
-                    <Icon className="text-primary-600 dark:text-primary-400 mr-3" size={24} />
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                      {category.category}
-                    </h3>
-                  </div>
-                  <div className="space-y-3">
-                    {category.skills.map((skill) => (
-                      <div key={skill.name}>
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                            {skill.name}
-                          </span>
-                          <span className="text-sm text-gray-500 dark:text-gray-400">
-                            {skill.level}%
-                          </span>
-                        </div>
-                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                          <div
-                            className="bg-primary-600 dark:bg-primary-400 h-2 rounded-full transition-all duration-500"
-                            style={{ width: `${skill.level}%` }}
-                          ></div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+    <section className="section-padding bg-gray-50 dark:bg-gray-800">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Technical Skills
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Here are the technologies and tools I work with regularly
+          </p>
         </div>
-      </section>
-    </Layout>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skillsData.map((category, index) => {
+            const Icon = category.icon;
+            return (
+              <div
+                key={category.category}
+                className="card p-6 animate-slide-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex items-center mb-4">
+                  <Icon className="text-primary-600 dark:text-primary-400 mr-3" size={24} />
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    {category.category}
+                  </h3>
+                </div>
+                <div className="space-y-3">
+                  {category.skills.map((skill) => (
+                    <div key={skill.name}>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                          {skill.name}
+                        </span>
+                        <span className="text-sm text-gray-500 dark:text-gray-400">
+                          {skill.level}%
+                        </span>
+                      </div>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div
+                          className="bg-primary-600 dark:bg-primary-400 h-2 rounded-full transition-all duration-500"
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }
