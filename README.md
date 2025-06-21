@@ -33,12 +33,14 @@ A modern, responsive portfolio website built with Next.js, Tailwind CSS, and Rea
 ### Installation
 
 1. **Extract the project files**
+
    ```bash
    # Extract the zip file and navigate to the project directory
    cd portfolio-nextjs
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    # or
@@ -46,6 +48,7 @@ A modern, responsive portfolio website built with Next.js, Tailwind CSS, and Rea
    ```
 
 3. **Start the development server**
+
    ```bash
    npm run dev
    # or
@@ -100,14 +103,17 @@ portfolio-nextjs/
 Update your personal information in the following files:
 
 **Hero Section** (`components/Hero.js`):
+
 - Change name, title, and description
 - Update social media links
 - Add your profile image
 
 **Header** (`components/layout/Header.js`):
+
 - Update the logo/brand name
 
 **Footer** (`components/layout/Footer.js`):
+
 - Update contact information
 - Add your social media links
 - Update the description
