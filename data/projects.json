@@ -1,48 +1,47 @@
 [
   {
     "id": 1,
-    "title": "E-Commerce Platform",
-    "description": "A full-stack e-commerce platform built with Next.js, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.",
-    "technologies": [
-      "Next.js",
-      "Node.js",
-      "MongoDB",
-      "Stripe",
-      "Tailwind CSS"
-    ],
-    "githubUrl": "https://github.com/yourusername/ecommerce-platform",
-    "liveUrl": "https://your-ecommerce-demo.vercel.app",
-    "image": "/images/project1.jpg",
-    "featured": true
+    "title": "GOFood",
+    "description": "An online food delivery app using React, Node.js, MongoDB, Express.js, and Bootstrap. Features login, cart management, and future plans for more capabilities.",
+    "technologies": ["React", "Node.js", "MongoDB", "Express", "Bootstrap"],
+    "githubUrl": "https://github.com/SurajBiswal/gofood",
+    "liveUrl": "",
+    "image": "/images/projects/gofood.png"
   },
   {
     "id": 2,
-    "title": "Task Management App",
-    "description": "A collaborative task management application with real-time updates, built using React, Firebase, and Material-UI.",
-    "technologies": [
-      "React",
-      "Firebase",
-      "Material-UI",
-      "Redux"
-    ],
-    "githubUrl": "https://github.com/yourusername/task-manager",
-    "liveUrl": "https://your-taskapp-demo.vercel.app",
-    "image": "/images/project2.jpg",
-    "featured": true
+    "title": "EmailGenie",
+    "description": "Chrome extension using Gemini AI to automate Gmail replies, boosting productivity and reducing effort.",
+    "technologies": ["ReactJS", "Material UI", "Java", "Gemini API"],
+    "githubUrl": "https://github.com/SurajBiswal/EmailGenie",
+    "liveUrl": "",
+    "image": "/images/projects/emailgenie.png"
   },
   {
     "id": 3,
-    "title": "Weather App",
-    "description": "A responsive weather application that provides real-time weather data using OpenWeatherMap API.",
-    "technologies": [
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "OpenWeatherMap API"
-    ],
-    "githubUrl": "https://github.com/yourusername/weather-app",
-    "liveUrl": "https://your-weather-demo.vercel.app",
-    "image": "/images/project3.jpg",
-    "featured": false
+    "title": "RouteMate",
+    "description": "Backend for ride-sharing with booking system, role-based authentication, and live location tracking using Spring Boot and PostGIS.",
+    "technologies": ["Spring Boot", "JWT", "PostgreSQL", "PostGIS", "AWS"],
+    "githubUrl": "https://github.com/SurajBiswal/RouteMate",
+    "liveUrl": "",
+    "image": "/images/projects/routemate.png"
+  },
+  {
+    "id": 4,
+    "title": "Portfolio",
+    "description": "My personal developer portfolio built using Next.js, React, Node.js and Tailwind CSS.",
+    "technologies": ["Next.js", "React", "Node.js", "Tailwind CSS"],
+    "githubUrl": "https://github.com/SurajBiswal/Suraj_Biswal_Portfolio",
+    "liveUrl": "https://surajbiswalportfolio.vercel.app/",
+    "image": "/images/projects/portfolio.png"
+  },
+  {
+    "id": 5,
+    "title": "Job-Application (Ongoing)",
+    "description": "A job application system built with Java microservices, Spring Boot, Docker, AWS, and RabbitMQ.",
+    "technologies": ["Java", "Spring Boot", "Docker", "AWS", "RabbitMQ"],
+    "githubUrl": "https://github.com/SurajBiswal/job-application",
+    "liveUrl": "",
+    "image": "/images/projects/jobapp.png"
   }
 ]

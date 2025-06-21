@@ -1,110 +1,253 @@
 [
   {
     "id": 1,
-    "title": "Understanding Binary Trees: A Complete Guide",
-    "slug": "understanding-binary-trees-complete-guide",
+    "title": "Binary Tree Problems Solved: Brute, Better, Optimal",
+    "slug": "binary-tree-problems-solved-brute-better-optimal",
     "category": "dsa",
-    "excerpt": "Dive deep into binary trees, their properties, and common operations. Learn how to implement and traverse binary trees with practical examples.",
-    "content": "Binary trees are fundamental data structures in computer science...",
-    "author": "Your Name",
-    "publishedDate": "2024-01-15",
-    "readTime": "8 min read",
+    "excerpt": "A comprehensive guide covering 20 binary tree questions with detailed explanations of brute-force, better, and optimal approaches for each problem.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "15 min read",
     "tags": [
       "binary-trees",
-      "data-structures",
       "algorithms",
-      "programming"
+      "data-structures",
+      "interview-prep",
+      "time-complexity"
     ],
     "featured": true
   },
   {
     "id": 2,
-    "title": "System Design: Building Scalable Web Applications",
-    "slug": "system-design-building-scalable-web-applications",
-    "category": "system-design",
-    "excerpt": "Learn the principles of system design and how to build applications that can handle millions of users. Covers load balancing, caching, and database scaling.",
-    "content": "System design is crucial for building applications that scale...",
-    "author": "Your Name",
-    "publishedDate": "2024-01-10",
-    "readTime": "12 min read",
-    "tags": [
-      "system-design",
-      "scalability",
-      "architecture",
-      "web-development"
-    ],
-    "featured": true
-  },
-  {
-    "id": 3,
-    "title": "Big O Notation: Time and Space Complexity",
-    "slug": "big-o-notation-time-space-complexity",
-    "category": "cs-fundamentals",
-    "excerpt": "Master Big O notation to analyze algorithm efficiency. Understand time and space complexity with visual examples and practical applications.",
-    "content": "Big O notation is essential for analyzing algorithm performance...",
-    "author": "Your Name",
-    "publishedDate": "2024-01-05",
-    "readTime": "6 min read",
-    "tags": [
-      "big-o",
-      "complexity",
-      "algorithms",
-      "performance"
-    ],
-    "featured": false
-  },
-  {
-    "id": 4,
-    "title": "React Hooks: useState and useEffect Deep Dive",
-    "slug": "react-hooks-usestate-useeffect-deep-dive",
-    "category": "web-development",
-    "excerpt": "Explore React hooks in detail. Learn how to use useState and useEffect effectively with practical examples and best practices.",
-    "content": "React hooks revolutionized how we write React components...",
-    "author": "Your Name",
-    "publishedDate": "2024-01-01",
-    "readTime": "10 min read",
-    "tags": [
-      "react",
-      "hooks",
-      "javascript",
-      "frontend"
-    ],
-    "featured": true
-  },
-  {
-    "id": 5,
-    "title": "Graph Algorithms: DFS and BFS Implementation",
-    "slug": "graph-algorithms-dfs-bfs-implementation",
+    "title": "Graph Problems Solved: DFS, BFS, Cycle Detection, and More",
+    "slug": "graph-problems-solved-dfs-bfs-cycle-detection-and-more",
     "category": "dsa",
-    "excerpt": "Implement depth-first search and breadth-first search algorithms. Learn when to use each approach with real-world examples.",
-    "content": "Graph algorithms are essential for solving many programming problems...",
-    "author": "Your Name",
-    "publishedDate": "2023-12-28",
-    "readTime": "9 min read",
+    "excerpt": "Explore graph algorithms including depth-first search, breadth-first search, cycle detection, and shortest path algorithms with practical implementations.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "13 min read",
     "tags": [
       "graphs",
       "dfs",
       "bfs",
-      "algorithms"
+      "algorithms",
+      "cycle-detection",
+      "shortest-path"
     ],
     "featured": false
   },
   {
-    "id": 6,
-    "title": "Database Indexing: Performance Optimization",
-    "slug": "database-indexing-performance-optimization",
-    "category": "cs-fundamentals",
-    "excerpt": "Understand database indexing strategies to optimize query performance. Learn about B-trees, hash indexes, and when to use each type.",
-    "content": "Database indexing is crucial for application performance...",
-    "author": "Your Name",
-    "publishedDate": "2023-12-25",
-    "readTime": "7 min read",
+    "id": 3,
+    "title": "Top Array Interview Problems: Sliding Window to Two Pointers",
+    "slug": "top-array-interview-problems-sliding-window-to-two-pointers",
+    "category": "dsa",
+    "excerpt": "Master array manipulation techniques from sliding window to two pointers, with optimized solutions for the most common interview problems.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "8 min read",
     "tags": [
-      "database",
-      "indexing",
-      "performance",
-      "sql"
+      "arrays",
+      "sliding-window",
+      "two-pointers",
+      "algorithms",
+      "interview-prep"
+    ],
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Mastering Recursion and Backtracking",
+    "slug": "mastering-recursion-and-backtracking",
+    "category": "dsa",
+    "excerpt": "Deep dive into recursion and backtracking techniques with solutions to classic problems like N-Queens, Sudoku Solver, and generating subsets and permutations.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "12 min read",
+    "tags": [
+      "recursion",
+      "backtracking",
+      "algorithms",
+      "n-queens",
+      "sudoku",
+      "permutations"
     ],
     "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Low-Level Design: Real-World Object-Oriented Scenarios",
+    "slug": "low-level-design-real-world-object-oriented-scenarios",
+    "category": "system-design",
+    "excerpt": "Learn object-oriented design principles through real-world system implementations including Parking Lot, BookMyShow, Cache, Splitwise, and URL Shortener.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "13 min read",
+    "tags": [
+      "low-level-design",
+      "object-oriented",
+      "design-patterns",
+      "SOLID",
+      "parking-lot",
+      "url-shortener"
+    ],
+    "featured": true
+  },
+  {
+    "id": 6,
+    "title": "High-Level Design: Architecting Instagram, WhatsApp, YouTube",
+    "slug": "high-level-design-architecting-instagram-whatsapp-youtube",
+    "category": "system-design",
+    "excerpt": "Explore high-level architecture design for popular platforms like Instagram, WhatsApp, and YouTube, covering scalable services, load balancing, and data sharding.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "11 min read",
+    "tags": [
+      "high-level-design",
+      "system-architecture",
+      "scalability",
+      "load-balancing",
+      "sharding",
+      "microservices"
+    ],
+    "featured": false
+  },
+  {
+    "id": 7,
+    "title": "System Design Interview Questions: Practice with Real Scenarios",
+    "slug": "system-design-interview-questions-practice-with-real-scenarios",
+    "category": "system-design",
+    "excerpt": "Prepare for system design interviews with a structured approach to both low-level and high-level design questions, complete with example solutions.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "7 min read",
+    "tags": [
+      "system-design",
+      "interviews",
+      "scalability",
+      "architecture",
+      "design-patterns",
+      "case-studies"
+    ],
+    "featured": true
+  },
+  {
+    "id": 8,
+    "title": "OS Concepts for Interviews: Threads, Scheduling, and Deadlocks",
+    "slug": "os-concepts-for-interviews-threads-scheduling-and-deadlocks",
+    "category": "cs-fundamentals",
+    "excerpt": "A comprehensive guide to operating system concepts essential for technical interviews, including process management, thread synchronization, and deadlock prevention.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "7 min read",
+    "tags": [
+      "operating-systems",
+      "threads",
+      "process-scheduling",
+      "deadlocks",
+      "concurrency",
+      "memory-management"
+    ],
+    "featured": false
+  },
+  {
+    "id": 9,
+    "title": "DBMS Simplified: Transactions, Isolation Levels, and Indexing",
+    "slug": "dbms-simplified-transactions-isolation-levels-and-indexing",
+    "category": "cs-fundamentals",
+    "excerpt": "Demystifying database management systems with a focus on transaction processing, isolation levels, concurrency control, and indexing strategies.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "10 min read",
+    "tags": [
+      "dbms",
+      "transactions",
+      "acid",
+      "isolation-levels",
+      "indexing",
+      "normalization"
+    ],
+    "featured": true
+  },
+  {
+    "id": 10,
+    "title": "Computer Networks for Developers: HTTP, DNS, Load Balancing",
+    "slug": "computer-networks-for-developers-http-dns-load-balancing",
+    "category": "cs-fundamentals",
+    "excerpt": "An application-focused approach to computer networking, covering protocols, DNS resolution, load balancing, and content delivery networks relevant to developers.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "12 min read",
+    "tags": ["networking", "http", "dns", "tcp-ip", "load-balancing", "cdn"],
+    "featured": false
+  },
+  {
+    "id": 11,
+    "title": "React Patterns for Scalable Frontend Development",
+    "slug": "react-patterns-for-scalable-frontend-development",
+    "category": "web-development",
+    "excerpt": "Explore advanced React patterns and architectures that enable building maintainable, scalable frontend applications for enterprise environments.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "7 min read",
+    "tags": [
+      "react",
+      "frontend",
+      "design-patterns",
+      "component-architecture",
+      "state-management",
+      "hooks"
+    ],
+    "featured": true
+  },
+  {
+    "id": 12,
+    "title": "Mastering JavaScript: Closures, Event Loop, and Async Patterns",
+    "slug": "mastering-javascript-closures-event-loop-and-async-patterns",
+    "category": "web-development",
+    "excerpt": "Deep dive into JavaScript's core concepts including closures, execution context, the event loop, and asynchronous programming patterns.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "6 min read",
+    "tags": [
+      "javascript",
+      "closures",
+      "event-loop",
+      "async-await",
+      "promises",
+      "functional-programming"
+    ],
+    "featured": false
+  },
+  {
+    "id": 13,
+    "title": "Web Performance Optimization: Lazy Loading, Debouncing, and More",
+    "slug": "web-performance-optimization-lazy-loading-debouncing-and-more",
+    "category": "web-development",
+    "excerpt": "Practical techniques to optimize web application performance, from code splitting and lazy loading to debouncing user interactions and resource prioritization.",
+    "content": "Coming soon...",
+    "author": "Suraj Biswal",
+    "publishedDate": "2025-06-21",
+    "readTime": "14 min read",
+    "tags": [
+      "performance",
+      "lazy-loading",
+      "debouncing",
+      "code-splitting",
+      "web-vitals",
+      "optimization"
+    ],
+    "featured": true
   }
 ]

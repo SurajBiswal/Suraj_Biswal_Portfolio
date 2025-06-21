@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { FiArrowRight, FiDownload, FiGithub, FiLinkedin } from 'react-icons/fi';
+import Link from "next/link";
+import { FiArrowRight, FiDownload, FiGithub, FiLinkedin } from "react-icons/fi";
 
 export default function Hero() {
   return (
@@ -8,18 +8,28 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="animate-slide-up">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Hi, I'm{' '}
+            <h1
+              className="
+                text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6
+                overflow-hidden whitespace-nowrap 
+                border-r-2 border-r-primary-600 pr-2 
+                animate-typing animate-blink
+                inline-block max-w-full
+              "
+            >
+              Hi, I'm{" "}
               <span className="text-primary-600 dark:text-primary-400">
                 Suraj Biswal
               </span>
             </h1>
+
             <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6">
               Full Stack Software Engineer
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-              I build scalable web applications and love sharing knowledge through 
-              blog posts. Passionate about clean code, user experience, and continuous learning.
+              I build scalable web applications and love sharing knowledge
+              through blog posts. Passionate about clean code, user experience,
+              and continuous learning.
             </p>
 
             {/* CTA Buttons */}
@@ -32,15 +42,15 @@ export default function Hero() {
                 <FiArrowRight className="ml-2" />
               </Link>
               <a
-  href="/images/Suraj_Biswal resume.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  download
-  className="btn-secondary inline-flex items-center justify-center"
->
-  <FiDownload className="mr-2" />
-  Download Resume
-</a>
+                href="/images/Suraj_Biswal resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="btn-secondary inline-flex items-center justify-center"
+              >
+                <FiDownload className="mr-2" />
+                Download Resume
+              </a>
             </div>
 
             {/* Social Links */}
