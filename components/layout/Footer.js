@@ -7,22 +7,22 @@ export default function Footer() {
   const socialLinks = [
     {
       name: 'GitHub',
-      href: 'https://github.com/yourusername',
+      href: 'https://github.com/SurajBiswal',
       icon: FiGithub,
     },
     {
       name: 'LinkedIn',
-      href: 'https://linkedin.com/in/yourusername',
+      href: 'https://linkedin.com/in/suraj-biswal-b53b29192/',
       icon: FiLinkedin,
     },
     {
       name: 'Twitter',
-      href: 'https://twitter.com/yourusername',
+      href: 'https://x.com/SurajBi85516465',
       icon: FiTwitter,
     },
     {
       name: 'Email',
-      href: 'mailto:your.email@example.com',
+      href: 'mailto:surajbiswal390@gmail.com',
       icon: FiMail,
     },
   ];
@@ -101,7 +101,7 @@ export default function Footer() {
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              © {currentYear} Your Name. All rights reserved.
+              © {currentYear} Suraj Biswal. All rights reserved.
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 md:mt-0">
               Built with Next.js and Tailwind CSS

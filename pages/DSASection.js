@@ -20,7 +20,7 @@ export default function DSASection() {
             300+ problems solved, active in contests and consistent practice.
           </p>
           <a
-            href="https://leetcode.com/your-username"
+            href="https://leetcode.com/u/suraj_100-biswal/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
@@ -36,7 +36,7 @@ export default function DSASection() {
             Solved hundreds of problems in arrays, trees, graphs and participated in contests.
           </p>
           <a
-            href="https://auth.geeksforgeeks.org/user/your-username"
+            href="https://www.geeksforgeeks.org/user/surajbiswal156/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center text-green-600 dark:text-green-400 hover:underline font-medium"
