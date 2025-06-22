@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import Head from 'next/head'; 
 import Layout from '../components/layout/Layout';
 import Hero from '../components/Hero';
 import Skills from '../components/Skills';
@@ -7,9 +7,12 @@ import DSASection from '../pages/DSASection';
 import { FiArrowRight, FiCalendar, FiClock } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
 
+
 export default function Home() {
   const [projects, setProjects] = useState([]);
   const [blogPosts, setBlogPosts] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
+
 
   useEffect(() => {
     import('../data/projects.json').then(data => {
@@ -19,6 +22,12 @@ export default function Home() {
     import('../data/blog-posts.json').then(data => {
       setBlogPosts(data.default.filter(post => post.featured).slice(0, 3));
     });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted') === 'true') {
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+    }
   }, []);
 
   return (
@@ -31,41 +40,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
-        {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://suraj-biswal-portfolio.vercel.app/" />
         <meta property="og:title" content="Suraj Biswal | Full Stack Developer Portfolio" />
         <meta property="og:description" content="Explore Suraj Biswal's personal portfolio including DSA blogs, system design guides, and live project demos." />
         <meta property="og:image" content="/og-image.jpg" />
 
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://suraj-biswal-portfolio.vercel.app/" />
         <meta name="twitter:title" content="Suraj Biswal | Full Stack Developer Portfolio" />
         <meta name="twitter:description" content="Explore Suraj Biswal's personal portfolio including DSA blogs, system design guides, and live project demos." />
         <meta name="twitter:image" content="/og-image.jpg" />
 
-        {/* Canonical Link */}
         <link rel="canonical" href="https://suraj-biswal-portfolio.vercel.app/" />
       </Head>
-
-      {/* Structured Data for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Suraj Biswal",
-            url: "https://suraj-biswal-portfolio.vercel.app",
-            jobTitle: "Full Stack Developer",
-            sameAs: [
-              "https://github.com/SurajBiswal",
-              "https://linkedin.com/in/suraj-biswal-b53b29192/"
-            ]
-          })
-        }}
-      />
 
       <Layout
         title="Suraj Biswal | Full Stack Developer || DSA & System Design Blog"
@@ -166,8 +154,92 @@ export default function Home() {
               </div>
             </div>
           </section>
+
+            {/* Contact Section */}
+            <section className="section-padding bg-white dark:bg-gray-900 relative">
+            {submitted && (
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-green-100 text-green-800 dark:bg-green-700 dark:text-white px-6 py-3 rounded-md shadow-lg animate-fade-in-out z-50">
+                Your message has been sent successfully!
+              </div>
+            )}
+            <div className="max-w-xl mx-auto p-6 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-md mt-12">
+              <h2 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">Get in Touch</h2>
+              <form
+                action="https://formsubmit.co/surajbiswal390@gmail.com"
+                method="POST"
+                encType="multipart/form-data"
+              >
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="https://suraj-biswal-portfolio.vercel.app/?submitted=true" />
+
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Your Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full mt-1 px-4 py-2 rounded-md border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full mt-1 px-4 py-2 rounded-md border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Message</label>
+                  <textarea
+                    name="message"
+                    rows="4"
+                    required
+                    className="w-full mt-1 px-4 py-2 rounded-md border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  ></textarea>
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Attachment (optional)</label>
+                  <input type="file" name="attachment" className="w-full mt-1" />
+                </div>
+
+                <button type="submit" className="w-full bg-primary-600 text-white font-medium py-2 px-4 rounded-md hover:bg-primary-700 transition duration-300">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </section>
         </main>
       </Layout>
+
+      {/* Fade Animation */}
+      <style jsx>{`
+        .animate-fade-in-out {
+          animation: fadeInOut 4s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+          0% {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          10% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          90% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+        }
+      `}</style>
     </>
   );
 }

@@ -1,20 +1,20 @@
 [
   {
     "id": 1,
-    "title": "Binary Tree Problems Solved: Brute, Better, Optimal",
-    "slug": "binary-tree-problems-solved-brute-better-optimal",
+    "title": "Leetcode 230: Kth Smallest Element in a BST",
+    "slug": "kth-smallest-element-in-a-bst",
     "category": "dsa",
-    "excerpt": "A comprehensive guide covering 20 binary tree questions with detailed explanations of brute-force, better, and optimal approaches for each problem.",
-    "content": "Coming soon...",
+    "excerpt": "Find the k-th smallest element in a Binary Search Tree using in-order traversal. Covers both recursive and iterative Java solutions with complexity analysis.",
+    "content": "### Problem Statement\nGiven:\n- A Binary Search Tree (BST) represented by its root node\n- An integer k\n\nGoal:\nReturn the k-th smallest value in the tree when the elements are considered in ascending order.\n\n### Example 1:\nInput: root = [3,1,4,null,2], k = 1  \nOutput: 1\n\n### Example 2:\nInput: root = [5,3,6,2,4,null,null,1], k = 3  \nOutput: 3\n\n---\n\n### Intuition\nA Binary Search Tree inherently supports fast retrieval of sorted data using in-order traversal.\nIn an in-order traversal, we visit nodes in this order:\nLeft subtree → Node → Right subtree\n\nThis pattern guarantees that the values are accessed in ascending order. So, by counting nodes during in-order traversal, the k-th visited node is the k-th smallest value in the BST.\n\n---\n\n### Approach 1: Recursive In-order Traversal\nThe idea is simple:\n- Perform an in-order traversal\n- Keep a count of how many nodes have been visited\n- As soon as the count reaches k, store the node value and stop the traversal\n\nThis approach uses a recursive helper function to navigate the tree and class-level variables to track the count and result.\n\n#### Java Code:\n```java\nclass Solution {\n    private int node = -1;\n    private int count = 0;\n\n    public int kthSmallest(TreeNode root, int k) {\n        helper(root, k);\n        return node;\n    }\n\n    private boolean helper(TreeNode root, int k) {\n        if (root == null) return false;\n\n        if (helper(root.left, k)) return true;\n\n        count++;\n        if (count == k) {\n            node = root.val;\n            return true;\n        }\n\n        return helper(root.right, k);\n    }\n}\n```\n\n#### Time Complexity:\n- Best case: O(k) if the target node is found early\n- Worst case: O(n) if the traversal visits all nodes\n\n#### Space Complexity:\n- Depends on the height of the tree due to recursion stack\n- O(log n) for balanced trees\n- O(n) for skewed trees\n\n---\n\n### Approach 2: Iterative In-order Traversal\nInstead of recursion, simulate in-order traversal using a stack for better control.\n\nSteps:\n- Use a stack to explore left children until reaching the leftmost node\n- Pop the node, decrease k, and check if it's the k-th element\n- If not, move to the right subtree and continue\n\n#### Java Code:\n```java\nclass Solution {\n    public int kthSmallest(TreeNode root, int k) {\n        Stack<TreeNode> st = new Stack<>();\n\n        while (root != null || !st.isEmpty()) {\n            while (root != null) {\n                st.push(root);\n                root = root.left;\n            }\n\n            root = st.pop();\n            k--;\n            if (k == 0) return root.val;\n\n            root = root.right;\n        }\n\n        return -1; // fallback if k is out of range\n    }\n}\n```\n\n#### Time Complexity:\n- O(h + k), where h is the height of the tree\n- O(log n + k) for balanced trees\n- O(n) for skewed trees\n\n#### Space Complexity:\n- O(h), as the stack stores up to h nodes\n\n---\n\n### Conclusion\nTo find the k-th smallest element in a BST:\n- Use in-order traversal, as it retrieves values in sorted order\n- The recursive method is clean but can be inefficient for deep trees\n- The iterative method avoids recursion and is preferred for larger datasets\n\nBoth approaches solve the problem effectively. Choose based on context, tree structure, and system constraints.",
     "author": "Suraj Biswal",
-    "publishedDate": "2025-06-21",
-    "readTime": "15 min read",
+    "publishedDate": "2025-06-22",
+    "readTime": "6 min read",
     "tags": [
-      "binary-trees",
-      "algorithms",
-      "data-structures",
-      "interview-prep",
-      "time-complexity"
+      "binary-search-tree",
+      "inorder-traversal",
+      "kth-element",
+      "bst",
+      "leetcode"
     ],
     "featured": true
   },
@@ -79,66 +79,24 @@
   },
   {
     "id": 5,
-    "title": "Low-Level Design: Real-World Object-Oriented Scenarios",
-    "slug": "low-level-design-real-world-object-oriented-scenarios",
+    "title": "The Singleton Pattern in Java: Design, Use Cases & Best Practices",
+    "slug": "singleton-pattern-java",
     "category": "system-design",
-    "excerpt": "Learn object-oriented design principles through real-world system implementations including Parking Lot, BookMyShow, Cache, Splitwise, and URL Shortener.",
-    "content": "Coming soon...",
+    "excerpt": "Understand how the Singleton Pattern ensures a single instance of a class across an application. Learn its variations, real-world use cases, and thread-safe implementations in Java.",
     "author": "Suraj Biswal",
-    "publishedDate": "2025-06-21",
-    "readTime": "13 min read",
+    "publishedDate": "2025-06-22",
+    "readTime": "9 min read",
     "tags": [
-      "low-level-design",
-      "object-oriented",
+      "singleton-pattern",
+      "java",
       "design-patterns",
-      "SOLID",
-      "parking-lot",
-      "url-shortener"
+      "low-level-design",
+      "system-design"
     ],
-    "featured": true
+    "content": "When building systems that need shared access to a single object—like a logging service, config manager, or database connection pool—you need to make sure only one instance of that object exists throughout your app. That’s exactly what the **Singleton Design Pattern** solves.\n\nThe **Singleton Pattern** ensures a class has **only one instance** and provides a **global access point** to it.\n\n---\n\n## 🧩 Why Use Singleton?\n- Avoids resource wastage by reusing the same object.\n- Maintains consistent access to shared services.\n- Coordinates system-wide operations through one unified point.\n\nUse cases include:\n- Logger services\n- Thread pool executors\n- Configuration managers\n- Cache handlers\n\n---\n\n## 🏗️ Ways to Implement Singleton Pattern\n\nThere are two common ways:\n\n### 1️⃣ Eager Initialization (Early Instantiation)\nThe object is created at the time the class is loaded.\n\n#### ✅ Advantages:\n- Simple to implement\n- Thread-safe by default (due to class loading mechanics)\n\n#### ❌ Disadvantages:\n- Memory wastage if the object is never used\n- Delays startup if initialization is heavy\n\n```java\nclass Singleton {\n   private static final Singleton INSTANCE = new Singleton();\n\n   private Singleton() {}\n\n   public static Singleton getInstance() {\n       return INSTANCE;\n   }\n}\n```\n\n**Key Notes:**\n- The `private` constructor prevents external instantiation\n- `static final` ensures it's created once and not reassigned\n- Best suited for lightweight objects needed throughout the app\n\n💡 Real-World Example: JDBC Driver Manager initializes a singleton at load time.\n\n---\n\n### 2️⃣ Lazy Initialization (On-Demand Instantiation)\nObject is created only when it's needed.\n\n#### ✅ Advantages:\n- Saves memory and avoids early initialization\n- Great for expensive objects used occasionally\n\n#### ❌ Disadvantages:\n- Not thread-safe unless handled manually\n- Can break the singleton guarantee in multi-threaded apps\n\n```java\nclass Singleton {\n   private static Singleton instance;\n\n   private Singleton() {}\n\n   public static Singleton getInstance() {\n       if (instance == null) {\n           instance = new Singleton();\n       }\n       return instance;\n   }\n}\n```\n\n💡 Real-World Example: Database connection pools where connections are established only when needed.\n\n---\n\n## 🧵 Thread Safety in Lazy Initialization\n\n### 🚨 Problem:\nIf two threads call `getInstance()` at the same time when `instance` is null, they may both create new instances, violating singleton behavior.\n\n### 🔹 Fix 1: Synchronized Method (Simple but Slower)\n\n```java\nclass Singleton {\n   private static Singleton instance;\n   private Singleton() {}\n\n   public static synchronized Singleton getInstance() {\n       if (instance == null) {\n           instance = new Singleton();\n       }\n       return instance;\n   }\n}\n```\n\n**Pros:**\n- Thread-safe\n\n**Cons:**\n- Every call is synchronized, which impacts performance even after instance creation\n\n---\n\n### 🏆 Fix 2: Double-Checked Locking (Best Practice)\n\n```java\nclass Singleton {\n   private static volatile Singleton instance;\n   private Singleton() {}\n\n   public static Singleton getInstance() {\n       if (instance == null) {\n           synchronized (Singleton.class) {\n               if (instance == null) {\n                   instance = new Singleton();\n               }\n           }\n       }\n       return instance;\n   }\n}\n```\n\n**Why it’s best:**\n- First check avoids locking after initialization\n- `synchronized` ensures only one thread initializes\n- `volatile` ensures visibility across threads and prevents half-constructed objects from being used\n\n---\n\n## 🔍 Choosing Between Eager and Lazy Initialization\n\nUse **Eager Initialization** when:\n- The instance is always required during the app lifecycle\n- The object is lightweight\n- You want built-in thread safety with no extra effort\n\nUse **Lazy Initialization with Double-Checked Locking** when:\n- Object creation is expensive and should be deferred\n- You're working in a multi-threaded environment\n- You want memory efficiency and thread safety\n\nAvoid **Simple Lazy Initialization** (without thread safety) when:\n- The application runs with multiple threads\n- You care about maintaining strict singleton guarantees\n\n---\n\n## 🎯 Key Takeaways\n- Singleton ensures that a single shared object is reused everywhere\n- Use eager loading for simple always-needed objects\n- Use lazy + DCL for performance-heavy and thread-safe requirements\n- Don’t forget `volatile` for correct behavior in concurrent systems\n\n> 💡 With the right implementation, Singleton simplifies your architecture and reduces bugs related to shared state.\n\nHappy Coding! 🚀"
   },
   {
     "id": 6,
-    "title": "High-Level Design: Architecting Instagram, WhatsApp, YouTube",
-    "slug": "high-level-design-architecting-instagram-whatsapp-youtube",
-    "category": "system-design",
-    "excerpt": "Explore high-level architecture design for popular platforms like Instagram, WhatsApp, and YouTube, covering scalable services, load balancing, and data sharding.",
-    "content": "Coming soon...",
-    "author": "Suraj Biswal",
-    "publishedDate": "2025-06-21",
-    "readTime": "11 min read",
-    "tags": [
-      "high-level-design",
-      "system-architecture",
-      "scalability",
-      "load-balancing",
-      "sharding",
-      "microservices"
-    ],
-    "featured": false
-  },
-  {
-    "id": 7,
-    "title": "System Design Interview Questions: Practice with Real Scenarios",
-    "slug": "system-design-interview-questions-practice-with-real-scenarios",
-    "category": "system-design",
-    "excerpt": "Prepare for system design interviews with a structured approach to both low-level and high-level design questions, complete with example solutions.",
-    "content": "Coming soon...",
-    "author": "Suraj Biswal",
-    "publishedDate": "2025-06-21",
-    "readTime": "7 min read",
-    "tags": [
-      "system-design",
-      "interviews",
-      "scalability",
-      "architecture",
-      "design-patterns",
-      "case-studies"
-    ],
-    "featured": true
-  },
-  {
-    "id": 8,
     "title": "OS Concepts for Interviews: Threads, Scheduling, and Deadlocks",
     "slug": "os-concepts-for-interviews-threads-scheduling-and-deadlocks",
     "category": "cs-fundamentals",
@@ -158,7 +116,7 @@
     "featured": false
   },
   {
-    "id": 9,
+    "id": 7,
     "title": "DBMS Simplified: Transactions, Isolation Levels, and Indexing",
     "slug": "dbms-simplified-transactions-isolation-levels-and-indexing",
     "category": "cs-fundamentals",
@@ -178,7 +136,7 @@
     "featured": true
   },
   {
-    "id": 10,
+    "id": 8,
     "title": "Computer Networks for Developers: HTTP, DNS, Load Balancing",
     "slug": "computer-networks-for-developers-http-dns-load-balancing",
     "category": "cs-fundamentals",
@@ -191,7 +149,7 @@
     "featured": false
   },
   {
-    "id": 11,
+    "id": 9,
     "title": "React Patterns for Scalable Frontend Development",
     "slug": "react-patterns-for-scalable-frontend-development",
     "category": "web-development",
@@ -211,7 +169,7 @@
     "featured": true
   },
   {
-    "id": 12,
+    "id": 10,
     "title": "Mastering JavaScript: Closures, Event Loop, and Async Patterns",
     "slug": "mastering-javascript-closures-event-loop-and-async-patterns",
     "category": "web-development",
@@ -231,7 +189,7 @@
     "featured": false
   },
   {
-    "id": 13,
+    "id": 11,
     "title": "Web Performance Optimization: Lazy Loading, Debouncing, and More",
     "slug": "web-performance-optimization-lazy-loading-debouncing-and-more",
     "category": "web-development",
@@ -251,7 +209,7 @@
     "featured": true
   },
   {
-    "id": 14,
+    "id": 12,
     "title": "Strategy Design Pattern: Flexible Behavior at Runtime",
     "slug": "strategy-design-pattern-low-level",
     "category": "system-design",

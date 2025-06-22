@@ -163,3 +163,70 @@ body {
 .dark .category-web-development {
   @apply bg-red-900 text-red-200 border-red-700;
 }
+
+/* Markdown table cleanup */
+.prose table {
+  @apply w-full border border-gray-300 dark:border-gray-600 text-sm;
+  border-collapse: collapse;
+}
+
+.prose thead {
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+
+.prose th,
+.prose td {
+  @apply border border-gray-300 dark:border-gray-600 px-4 py-2 text-left;
+}
+
+/* Inline code */
+.prose code {
+  @apply bg-gray-200 dark:bg-gray-700 text-sm px-1 py-0.5 rounded;
+}
+
+/* Code blocks */
+.prose pre {
+  @apply bg-gray-100 dark:bg-gray-800 text-sm rounded-lg p-4 overflow-x-auto my-6;
+}
+
+.prose pre code {
+  @apply text-gray-800 dark:text-gray-100;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  @apply border-l-4 border-primary-500 pl-4 italic text-gray-600 dark:text-gray-400;
+}
+
+/* List spacing */
+.prose ul,
+.prose ol {
+  @apply mb-4 pl-6;
+}
+
+.prose li {
+  @apply mb-1;
+}
+
+/* Headings */
+.prose h1 {
+  @apply text-3xl font-bold text-gray-900 dark:text-white mb-6 mt-12;
+}
+
+.prose h2 {
+  @apply text-2xl font-semibold text-gray-900 dark:text-white mt-10 mb-4;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold text-gray-800 dark:text-white mt-8 mb-2;
+}
+
+/* Lead paragraph spacing */
+.prose p.lead {
+  @apply text-lg text-gray-600 dark:text-gray-300 mb-6;
+}
+
+/* Responsive images */
+.prose img {
+  @apply rounded-lg shadow-md my-6;
+}
