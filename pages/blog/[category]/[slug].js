@@ -1,8 +1,17 @@
-import Layout from '../../../components/layout/Layout';
-import Link from 'next/link';
-import { FiCalendar, FiClock, FiArrowLeft, FiShare2, FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import Layout from "../../../components/layout/Layout";
+import Link from "next/link";
+import {
+  FiCalendar,
+  FiClock,
+  FiArrowLeft,
+  FiShare2,
+  FiGithub,
+  FiLinkedin,
+  FiTwitter,
+} from "react-icons/fi";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import ReactMarkdown from "react-markdown";
 
 export default function BlogPost() {
   const router = useRouter();
@@ -14,20 +23,22 @@ export default function BlogPost() {
   useEffect(() => {
     if (!category || !slug) return;
 
-    import('../../../data/blog-posts.json').then(data => {
+    import("../../../data/blog-posts.json").then((data) => {
       const allPosts = data.default;
-      const foundPost = allPosts.find(p => p.category === category && p.slug === slug);
+      const foundPost = allPosts.find(
+        (p) => p.category === category && p.slug === slug
+      );
 
       if (foundPost) {
         setPost(foundPost);
 
         // Find related posts in the same category
         const related = allPosts
-          .filter(p => p.category === category && p.slug !== slug)
+          .filter((p) => p.category === category && p.slug !== slug)
           .slice(0, 3);
         setRelatedPosts(related);
       } else {
-        router.push('/blog');
+        router.push("/blog");
       }
 
       setLoading(false);
@@ -36,20 +47,20 @@ export default function BlogPost() {
 
   const getCategoryColor = (cat) => {
     const colors = {
-      'dsa': 'category-dsa',
-      'system-design': 'category-system-design',
-      'cs-fundamentals': 'category-cs-fundamentals',
-      'web-development': 'category-web-development',
+      dsa: "category-dsa",
+      "system-design": "category-system-design",
+      "cs-fundamentals": "category-cs-fundamentals",
+      "web-development": "category-web-development",
     };
-    return colors[cat] || 'bg-gray-100 text-gray-800';
+    return colors[cat] || "bg-gray-100 text-gray-800";
   };
 
   const getCategoryName = (cat) => {
     const names = {
-      'dsa': 'Data Structures & Algorithms',
-      'system-design': 'System Design',
-      'cs-fundamentals': 'CS Fundamentals',
-      'web-development': 'Web Development',
+      dsa: "Data Structures & Algorithms",
+      "system-design": "System Design",
+      "cs-fundamentals": "CS Fundamentals",
+      "web-development": "Web Development",
     };
     return names[cat] || cat;
   };
@@ -76,22 +87,25 @@ export default function BlogPost() {
   if (!post) return null;
 
   return (
-    <Layout 
-      title={`${post.title} - Blog`} 
-      description={post.excerpt}
-    >
+    <Layout title={`${post.title} - Blog`} description={post.excerpt}>
       {/* Hero Section */}
-      <section className={`section-padding bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800`}>
+      <section
+        className={`section-padding bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800`}
+      >
         <div className="max-w-4xl mx-auto">
-          <Link 
-            href={`/blog/${category}`} 
+          <Link
+            href={`/blog/${category}`}
             className="inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline mb-6"
           >
             <FiArrowLeft className="mr-2" />
             Back to {getCategoryName(category)}
           </Link>
 
-          <div className={`${getCategoryColor(category)} inline-block px-3 py-1 rounded-full text-sm mb-6`}>
+          <div
+            className={`${getCategoryColor(
+              category
+            )} inline-block px-3 py-1 rounded-full text-sm mb-6`}
+          >
             {getCategoryName(category).toUpperCase()}
           </div>
 
@@ -110,7 +124,9 @@ export default function BlogPost() {
             </div>
             <div>
               <span className="mr-2">By</span>
-              <span className="text-gray-700 dark:text-gray-300 font-medium">{post.author}</span>
+              <span className="text-gray-700 dark:text-gray-300 font-medium">
+                {post.author}
+              </span>
             </div>
           </div>
 
@@ -140,56 +156,66 @@ export default function BlogPost() {
 
                 <div className="mb-12">
                   {/* This would be the full blog post content */}
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <ReactMarkdown
+                    components={{
+                      h1: ({ node, ...props }) => (
+                        <h1
+                          className="text-3xl font-bold text-gray-900 dark:text-white my-6"
+                          {...props}
+                        />
+                      ),
+                      h2: ({ node, ...props }) => (
+                        <h2
+                          className="text-2xl font-bold text-gray-900 dark:text-white my-4"
+                          {...props}
+                        />
+                      ),
+                      p: ({ node, ...props }) => (
+                        <p
+                          className="text-gray-700 dark:text-gray-300 mb-4"
+                          {...props}
+                        />
+                      ),
+                      code: ({
+                        node,
+                        inline,
+                        className,
+                        children,
+                        ...props
+                      }) => {
+                        return !inline ? (
+                          <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto mb-4">
+                            <code
+                              {...props}
+                              className="text-sm font-mono text-gray-800 dark:text-gray-200"
+                            >
+                              {children}
+                            </code>
+                          </pre>
+                        ) : (
+                          <code
+                            className="bg-gray-200 dark:bg-gray-700 px-1 rounded"
+                            {...props}
+                          >
+                            {children}
+                          </code>
+                        );
+                      },
+                      ul: ({ node, ...props }) => (
+                        <ul
+                          className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4"
+                          {...props}
+                        />
+                      ),
+                      li: ({ node, ...props }) => (
+                        <li className="mb-1" {...props} />
+                      ),
+                    }}
+                  >
                     {post.content}
-                  </p>
+                  </ReactMarkdown>
 
-                  {/* Example content for preview */}
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">
-                    Getting Started
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tempor consectetur, 
-                    nisi nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, urna eu tempor consectetur,
-                    nisi nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem.
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    Sed euismod, urna eu tempor consectetur, nisi nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem.
-                    Sed euismod, urna eu tempor consectetur, nisi nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem.
-                  </p>
-
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">
-                    Key Concepts
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tempor consectetur,
-                    nisi nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, urna eu tempor consectetur,
-                    nisi nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem.
-                  </p>
-                  <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-4">
-                    <li>First key concept explained in detail</li>
-                    <li>Second important point to understand</li>
-                    <li>Third element that builds on previous concepts</li>
-                  </ul>
-
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">
-                    Practical Example
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    Here's a code example that demonstrates the concept:
-                  </p>
-                  <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4 overflow-auto">
-                    <code className="text-sm font-mono text-gray-800 dark:text-gray-200">
-                      {`function example() {
-  // This is a sample code block
-  const data = [];
-  for (let i = 0; i < 10; i++) {
-    data.push(i * 2);
-  }
-  return data;
-}`}
-                    </code>
-                  </pre>
+                  
                 </div>
               </article>
 
@@ -207,8 +233,9 @@ export default function BlogPost() {
                       {post.author}
                     </h4>
                     <p className="text-gray-600 dark:text-gray-300 text-sm">
-                      Software engineer passionate about building scalable applications and sharing knowledge 
-                      through blog posts. Specialized in web development and algorithms.
+                      Software engineer passionate about building scalable
+                      applications and sharing knowledge through blog posts.
+                      Specialized in web development and algorithms.
                     </p>
                   </div>
                 </div>
@@ -253,8 +280,11 @@ export default function BlogPost() {
                 </h3>
                 {relatedPosts.length > 0 ? (
                   <div className="space-y-4">
-                    {relatedPosts.map(related => (
-                      <div key={related.id} className="border-b border-gray-100 dark:border-gray-700 pb-4 last:border-0">
+                    {relatedPosts.map((related) => (
+                      <div
+                        key={related.id}
+                        className="border-b border-gray-100 dark:border-gray-700 pb-4 last:border-0"
+                      >
                         <Link
                           href={`/blog/${related.category}/${related.slug}`}
                           className="text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 font-medium text-sm"
@@ -281,28 +311,48 @@ export default function BlogPost() {
                     Categories
                   </h3>
                   <div className="space-y-2">
-                    <Link href="/blog/dsa" className="block p-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900 transition-colors">
+                    <Link
+                      href="/blog/dsa"
+                      className="block p-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900 transition-colors"
+                    >
                       <div className="flex items-center">
                         <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                        <span className="text-gray-700 dark:text-gray-300 text-sm">Data Structures & Algorithms</span>
+                        <span className="text-gray-700 dark:text-gray-300 text-sm">
+                          Data Structures & Algorithms
+                        </span>
                       </div>
                     </Link>
-                    <Link href="/blog/system-design" className="block p-2 rounded-lg hover:bg-green-50 dark:hover:bg-green-900 transition-colors">
+                    <Link
+                      href="/blog/system-design"
+                      className="block p-2 rounded-lg hover:bg-green-50 dark:hover:bg-green-900 transition-colors"
+                    >
                       <div className="flex items-center">
                         <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                        <span className="text-gray-700 dark:text-gray-300 text-sm">System Design</span>
+                        <span className="text-gray-700 dark:text-gray-300 text-sm">
+                          System Design
+                        </span>
                       </div>
                     </Link>
-                    <Link href="/blog/cs-fundamentals" className="block p-2 rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900 transition-colors">
+                    <Link
+                      href="/blog/cs-fundamentals"
+                      className="block p-2 rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900 transition-colors"
+                    >
                       <div className="flex items-center">
                         <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
-                        <span className="text-gray-700 dark:text-gray-300 text-sm">CS Fundamentals</span>
+                        <span className="text-gray-700 dark:text-gray-300 text-sm">
+                          CS Fundamentals
+                        </span>
                       </div>
                     </Link>
-                    <Link href="/blog/web-development" className="block p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900 transition-colors">
+                    <Link
+                      href="/blog/web-development"
+                      className="block p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900 transition-colors"
+                    >
                       <div className="flex items-center">
                         <span className="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
-                        <span className="text-gray-700 dark:text-gray-300 text-sm">Web Development</span>
+                        <span className="text-gray-700 dark:text-gray-300 text-sm">
+                          Web Development
+                        </span>
                       </div>
                     </Link>
                   </div>
