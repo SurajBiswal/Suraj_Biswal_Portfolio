@@ -50,12 +50,12 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link
-            href="/"
-            className="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors"
-          >
-            Portfolio
-          </Link>
+          <Link href="/" className="group">
+  <div className="w-10 h-10 flex items-center justify-center rounded-full bg-primary-600 text-white dark:bg-primary-500 dark:text-gray-900 text-lg font-bold group-hover:scale-105 transition-transform">
+    SB
+  </div>
+</Link>
+
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">

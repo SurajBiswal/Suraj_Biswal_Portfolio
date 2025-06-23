@@ -63,14 +63,14 @@ export default function Contact() {
               ></textarea>
             </div>
 
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Attach File (optional)</label>
               <input
                 type="file"
                 name="attachment"
                 className="w-full mt-1 text-sm text-gray-500 dark:text-gray-400"
               />
-            </div>
+            </div> */}
 
             <button
               type="submit"

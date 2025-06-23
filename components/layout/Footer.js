@@ -50,7 +50,7 @@ export default function Footer() {
               href="/"
               className="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors"
             >
-              Portfolio
+              suraj
             </Link>
             <p className="mt-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
               Software Engineer passionate about building scalable web applications 
