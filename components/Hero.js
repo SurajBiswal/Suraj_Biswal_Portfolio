@@ -21,10 +21,9 @@ export default function Hero() {
                 inline-block max-w-full
               "
             >
-              Hi, I'm{" "}
-              <span className="text-primary-600 dark:text-primary-400">
-                Suraj Biswal
-              </span>
+               Hi, I’m
+  <br className="block sm:hidden" />
+  <span className="text-primary-600 dark:text-primary-400"> Suraj Biswal</span>
             </h1>
 
             <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6">

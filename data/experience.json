@@ -1,27 +1,43 @@
 [
   {
     "id": 1,
-    "company": "Sustainable Outreach Universal Leadership Limited",
+    "company": "Sustainable Outreach and Universal Leadership (SOUL) Limited",
     "position": "Software Engineer",
-    "duration": "Feb 2024 - Present",
-    "location": "Bhubaneswar, Odisha",
-    "description": "Contributed to Agile sprints delivering secure, scalable full-stack applications. Focused on clean code, performance optimization, and intuitive UI/UX designs to improve digital services for public systems.",
+    "duration": "Aug 2024 – Present",
+    "location": "Bhubaneswar, Odisha, India",
+    "description": "Built a scalable Facility Management web platform to discover, register, and book open spaces, enabling users to host or join events, manage facilities, and interact with real-time updates.",
     "technologies": [
-      "Spring Boot",
       "React",
+      "Spring Boot",
+      "Redux",
+      "PostgreSQL",
+      "PostGIS",
       "JWT",
-      "OAuth2",
-      "MySQL",
-      "Redis",
-      "Figma",
-      "AWS"
+      "Tailwind CSS",
+      "WebSockets"
     ],
     "achievements": [
-      "Engineered secure authentication using JWT & OAuth2, improving login success rate by 30%",
-      "Automated 60% of manual booking tasks for the Odisha Government",
-      "Integrated third-party APIs and payment gateways to streamline digital services",
-      "Enhanced backend efficiency by 30% via caching and tuning",
-      "Designed accessible, modular UI in Figma and React, boosting dev speed and accessibility"
+      "Engineered robust booking APIs with CRUD operations, input validation, and concurrency control, ensuring reliable booking during high user load.",
+      "Redesigned homepage with real-time updates using WebSockets and responsive UI, improving engagement by 35% and system reliability by 40%.",
+      "Implemented scalable data models and geospatial queries using PostGIS to manage and analyze over 100+ parks and open spaces.",
+      "Integrated multi-option cart logic with Redux to streamline booking and payment flow, improving UX and conversion rate.",
+      "Optimized application performance, reducing load time by 50% and increasing user retention and satisfaction metrics."
+    ]
+  },
+  {
+    "id": 2,
+    "company": "Sustainable Outreach and Universal Leadership (SOUL) Limited",
+    "position": "Software Engineer Intern",
+    "duration": "Feb 2024 – Jul 2024",
+    "location": "Bhubaneswar, Odisha, India",
+    "description": "Contributed to the early development of a government-backed open space management system with a focus on user experience, data structure, and secure access.",
+    "technologies": ["React", "Spring Boot", "MySQL", "JWT", "Figma"],
+    "achievements": [
+      "Collaborated in UX design for both web and mobile platforms, creating user-friendly booking flows with Figma.",
+      "Developed backend data models to manage space listings, schedules, and user roles across public assets.",
+      "Assisted in requirement gathering directly with clients, documenting use cases and translating them into engineering specs.",
+      "Implemented secure authentication and role-based access, reducing login issues by 30% and improving platform reliability.",
+      "Played a key role in integrating real-time space availability data into the frontend UI."
     ]
   }
 ]

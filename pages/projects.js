@@ -1,6 +1,7 @@
 import Layout from '../components/layout/Layout';
 import { FiGithub, FiExternalLink, FiFilter } from 'react-icons/fi';
 import { useState } from 'react';
+import projectsData from '../data/projects.json';
 
 export default function Projects() {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -9,61 +10,10 @@ export default function Projects() {
     { id: 'all', name: 'All Projects' },
     { id: 'featured', name: 'Featured' },
     { id: 'web', name: 'Web Apps' },
-    { id: 'api', name: 'APIs' },
+    { id: 'api', name: 'APIs' }
   ];
 
-  const projects = [
-    {
-      id: 1,
-      title: 'GOFood',
-      description:
-        'An online food delivery app using React, Node.js, MongoDB, and Express.js. Includes login, cart, and responsive UI.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Bootstrap'],
-      githubUrl: 'https://github.com/SurajBiswal/gofood',
-      liveUrl: '',
-      image: '/images/projects/gofood.png',
-    },
-    {
-      id: 2,
-      title: 'EmailGenie - AI Chrome Extension',
-      description:
-        'Chrome extension using Gemini AI to auto-generate Gmail replies, improving productivity for professionals.',
-      technologies: ['ReactJS', 'Material UI', 'Java', 'Gemini API'],
-      githubUrl: 'https://github.com/SurajBiswal/EmailGenie',
-      liveUrl: '',
-      image: '/images/projects/emailgenie.png',
-    },
-    {
-      id: 3,
-      title: 'RouteMate',
-      description:
-        'Spring Boot-based backend for ride-sharing with booking, live location, and role-based access using PostGIS.',
-      technologies: ['Spring Boot', 'JWT', 'PostgreSQL', 'PostGIS', 'AWS'],
-      githubUrl: 'https://github.com/SurajBiswal/RouteMate',
-      liveUrl: '',
-      image: '/images/projects/routemate.png',
-    },
-    {
-      id: 4,
-      title: 'Developer Portfolio',
-      description:
-        'Responsive portfolio built using Next.js, React, and Tailwind CSS to showcase full stack development work.',
-      technologies: ['Next.js', 'React', 'Node.js', 'Tailwind CSS'],
-      githubUrl: 'https://github.com/SurajBiswal/Suraj_Biswal_Portfolio',
-      liveUrl: 'https://surajbiswalportfolio.vercel.app/',
-      image: '/images/projects/portfolio.png',
-    },
-    {
-      id: 5,
-      title: 'Job Application System (Ongoing)',
-      description:
-        'Microservice-based job application backend built with Spring Boot, Docker, AWS, RabbitMQ, and Java.',
-      technologies: ['Java', 'Spring Boot', 'Docker', 'AWS', 'RabbitMQ'],
-      githubUrl: 'https://github.com/SurajBiswal/job-application',
-      liveUrl: '',
-      image: '/images/projects/jobapp.png',
-    },
-  ];
+  const projects = projectsData;
 
   const filteredProjects =
     selectedFilter === 'all'
@@ -104,7 +54,6 @@ export default function Projects() {
             </p>
           </header>
 
-          {/* Filters */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <FiFilter className="text-gray-400 mt-2" size={20} />
             {filters.map((filter) => (
@@ -122,7 +71,6 @@ export default function Projects() {
             ))}
           </div>
 
-          {/* Project Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
               <article
@@ -134,6 +82,7 @@ export default function Projects() {
                   src={project.image}
                   alt={`${project.title} preview image`}
                   className="w-full h-48 object-cover rounded-lg mb-4"
+                  onError={(e) => (e.target.src = '/images/fallback.png')}
                   loading="lazy"
                 />
 
@@ -165,7 +114,7 @@ export default function Projects() {
                     <FiGithub className="mr-2" size={18} />
                     <span className="text-sm font-medium">Code</span>
                   </a>
-                  {project.liveUrl && (
+                  {project.liveUrl ? (
                     <a
                       href={project.liveUrl}
                       target="_blank"
@@ -175,13 +124,14 @@ export default function Projects() {
                       <FiExternalLink className="mr-2" size={18} />
                       <span className="text-sm font-medium">Live Demo</span>
                     </a>
+                  ) : (
+                    <span className="text-sm text-gray-400">Coming Soon</span>
                   )}
                 </div>
               </article>
             ))}
           </div>
 
-          {/* No Results Message */}
           {filteredProjects.length === 0 && (
             <div className="text-center py-12">
               <p className="text-gray-500 dark:text-gray-400 text-lg">

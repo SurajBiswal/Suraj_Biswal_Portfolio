@@ -1,47 +1,65 @@
 [
   {
     "id": 1,
-    "title": "GOFood",
-    "description": "An online food delivery app using React, Node.js, MongoDB, Express.js, and Bootstrap. Features login, cart management, and future plans for more capabilities.",
-    "technologies": ["React", "Node.js", "MongoDB", "Express", "Bootstrap"],
-    "githubUrl": "https://github.com/SurajBiswal/gofood",
+    "title": "Job Application System (Ongoing)",
+    "description": "Microservice-based job application backend built with Spring Boot, Docker, AWS, RabbitMQ, and Java.",
+    "technologies": ["Java", "Spring Boot", "Docker", "AWS", "RabbitMQ"],
+    "githubUrl": "https://github.com/SurajBiswal/job-application",
     "liveUrl": "",
-    "image": "/images/projects/gofood.png"
+    "image": "/images/jobPortal.jpg"
   },
   {
     "id": 2,
-    "title": "EmailGenie",
-    "description": "Chrome extension using Gemini AI to automate Gmail replies, boosting productivity and reducing effort.",
-    "technologies": ["ReactJS", "Material UI", "Java", "Gemini API"],
-    "githubUrl": "https://github.com/SurajBiswal/EmailGenie",
-    "liveUrl": "",
-    "image": "/images/projects/emailgenie.png"
-  },
-  {
-    "id": 3,
     "title": "RouteMate",
     "description": "Backend for ride-sharing with booking system, role-based authentication, and live location tracking using Spring Boot and PostGIS.",
     "technologies": ["Spring Boot", "JWT", "PostgreSQL", "PostGIS", "AWS"],
     "githubUrl": "https://github.com/SurajBiswal/RouteMate",
     "liveUrl": "",
-    "image": "/images/projects/routemate.png"
+    "image": "/images/1.jpg"
   },
   {
+    "id": 3,
+    "title": "Bhubaneswar Metro Navigator",
+    "description": "A smart metro route planner for Bhubaneswar built using HTML, CSS, and JavaScript. It calculates the shortest distance, time, and interchanges between metro stations using graph algorithms like Dijkstra’s algorithm.",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Graph Algorithms",
+      "Dijkstra",
+      "Heap"
+    ],
+    "githubUrl": "https://github.com/SurajBiswal/Bhubaneswar-Metro-Navigator",
+    "liveUrl": "https://zesty-cuchufli-26fd07.netlify.app/",
+    "image": "/images/BBSR-Metro.png"
+  },
+
+  {
     "id": 4,
+    "title": "EmailGenie",
+    "description": "Chrome extension using Gemini AI to automate Gmail replies, boosting productivity and reducing effort.",
+    "technologies": ["ReactJS", "Material UI", "Java", "Gemini API"],
+    "githubUrl": "https://github.com/SurajBiswal/EmailGenie",
+    "liveUrl": "",
+    "image": "/images/aiEmail.jpg"
+  },
+
+  {
+    "id": 5,
     "title": "Portfolio",
     "description": "My personal developer portfolio built using Next.js, React, Node.js and Tailwind CSS.",
     "technologies": ["Next.js", "React", "Node.js", "Tailwind CSS"],
     "githubUrl": "https://github.com/SurajBiswal/Suraj_Biswal_Portfolio",
-    "liveUrl": "https://surajbiswalportfolio.vercel.app/",
-    "image": "/images/projects/portfolio.png"
+    "liveUrl": "https://suraj-biswal-portfolio.vercel.app/",
+    "image": "/images/portfolioWebSS.png"
   },
   {
-    "id": 5,
-    "title": "Job-Application (Ongoing)",
-    "description": "A job application system built with Java microservices, Spring Boot, Docker, AWS, and RabbitMQ.",
-    "technologies": ["Java", "Spring Boot", "Docker", "AWS", "RabbitMQ"],
-    "githubUrl": "https://github.com/SurajBiswal/job-application",
+    "id": 6,
+    "title": "GOFood",
+    "description": "An online food delivery app using React, Node.js, MongoDB, Express.js, and Bootstrap. Features login, cart management, and future plans for more capabilities.",
+    "technologies": ["React", "Node.js", "MongoDB", "Express", "Bootstrap"],
+    "githubUrl": "https://github.com/SurajBiswal/gofood",
     "liveUrl": "",
-    "image": "/images/projects/jobapp.png"
+    "image": "/images/gofood.jpg"
   }
 ]
